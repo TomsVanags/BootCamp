@@ -37,7 +37,7 @@ export class CreateTaskComponent implements OnInit {
   onSubmit(): void {
     if (this.taskForm.valid) {
       console.log('Task:', this.taskForm.value);
-      // Perform any further processing here
+      // var vel kko pievienot, ja vajag (funkciju)
     }
   }
 }

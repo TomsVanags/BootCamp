@@ -1,6 +1,6 @@
 <h2>Create Task</h2>
 
-<from [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
     <div>
         <label for="title">Title</label><br>
         <input id="title" formControlName="title" />
@@ -17,4 +17,4 @@
         </div>
     </div>
     <button type="submit" [disabled]="taskForm.invalid">Add task</button>
-</from>
+</form>

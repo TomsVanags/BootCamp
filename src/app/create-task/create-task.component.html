@@ -16,5 +16,21 @@
             Description is required.
         </div>
     </div>
+
+    <div>
+        <label for="type">Type</label><br>
+        <input id="type" formControlName="type" />
+        <div *ngIf="taskForm.get('type')?.invalid && taskForm.get('type')?.touched">
+            Type is required.
+        </div>
+    </div>
+
+    <div>
+        <label for="status">Status</label><br>
+        <input id="status" formControlName="status" />
+        <div *ngIf="taskForm.get('status')?.invalid && taskForm.get('status')?.touched">
+            Status is required.
+        </div>
+    </div>
     <button type="submit" [disabled]="taskForm.invalid">Add task</button>
 </form>

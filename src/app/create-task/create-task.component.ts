@@ -37,7 +37,7 @@ export class CreateTaskComponent implements OnInit {
       title: ['', Validators.required],
       description: ['', Validators.required],
       type: ['', Validators.required],
-      createdOn: [{value: now, disabled: true}],
+      createdOn: [{value: now, disabled: true}, now.toISOString()],
       status: ['', Validators.required]
     });
   }
@@ -45,9 +45,20 @@ export class CreateTaskComponent implements OnInit {
   onSubmit(): void {
     if (this.taskForm.valid) {
       const taskData = this.taskForm.getRawValue()
+      this.downloadJson(taskData, 'task.json');
       console.log('Task:', this.taskForm.value);
       console.log(taskData)
       // var vel kko pievienot, ja vajag (funkciju)
     }
+  }
+
+  private downloadJson(data: any, filename:string): void {
+    const blob = new Blob([JSON.stringify(data, null, 2)], {type: 'application/json'});
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    a.click();
+    window.URL.revokeObjectURL(url);
   }
 }

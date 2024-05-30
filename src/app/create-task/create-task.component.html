@@ -26,6 +26,11 @@
     </div>
 
     <div>
+        <label for="createdOn">Created On:</label>
+        <input id="createdOn" formControlName="createdOn" type="text">
+    </div>
+
+    <div>
         <label for="status">Status</label><br>
         <input id="status" formControlName="status" />
         <div *ngIf="taskForm.get('status')?.invalid && taskForm.get('status')?.touched">
